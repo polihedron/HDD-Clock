@@ -1,0 +1,26 @@
+Protel Design System Design Rule Check
+PCB File : Documents\Electronics\HDDClock.PCB
+Date     : 19-Jul-2009
+Time     : 19:01:12
+
+Processing Rule : Broken-Net Constraint ( (On the board ) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Not Allowed) (On the board ),(On the board )
+Rule Violations :0
+
+Processing Rule : Broken-Net Constraint ( (On the board ) )
+   Violation         Net NetU4_3   is broken into 2 sub-nets. Routed To 50.00%
+     Subnet : BAT1-1   U4-3     
+     Subnet : BAT1-1   
+Rule Violations :1
+
+Processing Rule : Short-Circuit Constraint (Allowed=Not Allowed) (On the board ),(On the board )
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7.5mil) (On the board ),(On the board )
+Rule Violations :0
+
+
+Violations Detected : 1
+Time Elapsed        : 00:00:01

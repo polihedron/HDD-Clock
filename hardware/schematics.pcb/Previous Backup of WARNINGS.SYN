@@ -1,0 +1,20 @@
+Protel Synchronisation warnings report
+=========================================================================
+Date : 6-Jul-2009 
+Time : 19:26:12
+
+Reference document: Documents\Electronics\HDDClock.Sch
+Target document:    Documents\Electronics\HDDClock.PCB
+=========================================================================
+
+MISSING FOOTPRINTS
+=========================================================================
+R2 32kHz
+BAT1 BAT
+J1 
+Q1 IRLL014
+Q2 IRLL014
+Q3 IRLL014
+U2 TSOP348
+J2 RS232
+

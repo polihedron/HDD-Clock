@@ -1,0 +1,1 @@
+<Project name="HDDClock"><File path="Makefile"></File><File path="main.c"></File><File path="twi.h"></File><File path="twi.c"></File><File path="rtc.h"></File><File path="rtc.c"></File><File path="tables.h"></File></Project>

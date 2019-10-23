@@ -1,0 +1,121 @@
+   1               		.file	"rtc.c"
+   2               		.arch atmega128
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	RTC_SetValue
+  20               	RTC_SetValue:
+  21               	.LFB7:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 0E94 0000 		call WriteI2C
+  27               	/* epilogue: frame size=0 */
+  28 0004 0895      		ret
+  29               	/* epilogue end (size=1) */
+  30               	/* function RTC_SetValue size 3 (2) */
+  31               	.LFE7:
+  33               	.global	RTC_ReadValue
+  35               	RTC_ReadValue:
+  36               	.LFB8:
+  37               	.LM3:
+  38               	/* prologue: frame size=0 */
+  39               	/* prologue end (size=0) */
+  40               	.LM4:
+  41 0006 0E94 0000 		call SetPointer
+  42               	.LM5:
+  43 000a 0E94 0000 		call ReadI2C
+  44               	.LM6:
+  45 000e 9927      		clr r25
+  46               	/* epilogue: frame size=0 */
+  47 0010 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function RTC_ReadValue size 6 (5) */
+  50               	.LFE8:
+  52               	.global	BCDtoDEC
+  54               	BCDtoDEC:
+  55               	.LFB9:
+  56               	.LM7:
+  57               	/* prologue: frame size=0 */
+  58               	/* prologue end (size=0) */
+  59 0012 482F      		mov r20,r24
+  60               	.LM8:
+  61 0014 8295      		swap r24
+  62 0016 8F70      		andi r24,0x0f
+  63 0018 282F      		mov r18,r24
+  64 001a 3327      		clr r19
+  65 001c C901      		movw r24,r18
+  66 001e 53E0      		ldi r21,3
+  67 0020 880F      	1:	lsl r24
+  68 0022 991F      		rol r25
+  69 0024 5A95      		dec r21
+  70 0026 E1F7      		brne 1b
+  71 0028 820F      		add r24,r18
+  72 002a 931F      		adc r25,r19
+  73 002c 820F      		add r24,r18
+  74 002e 931F      		adc r25,r19
+  75 0030 4F70      		andi r20,lo8(15)
+  76 0032 480F      		add r20,r24
+  77               	.LM9:
+  78 0034 842F      		mov r24,r20
+  79 0036 9927      		clr r25
+  80               	/* epilogue: frame size=0 */
+  81 0038 0895      		ret
+  82               	/* epilogue end (size=1) */
+  83               	/* function BCDtoDEC size 20 (19) */
+  84               	.LFE9:
+  86               	.global	DECtoBCD
+  88               	DECtoBCD:
+  89               	.LFB10:
+  90               	.LM10:
+  91               	/* prologue: frame size=0 */
+  92               	/* prologue end (size=0) */
+  93 003a 382F      		mov r19,r24
+  94               	.LM11:
+  95 003c 4AE0      		ldi r20,lo8(10)
+  96 003e 642F      		mov r22,r20
+  97 0040 0E94 0000 		call __udivmodqi4
+  98 0044 292F      		mov r18,r25
+  99 0046 832F      		mov r24,r19
+ 100 0048 0E94 0000 		call __udivmodqi4
+ 101 004c 9927      		clr r25
+ 102 004e 64E0      		ldi r22,4
+ 103 0050 880F      	1:	lsl r24
+ 104 0052 991F      		rol r25
+ 105 0054 6A95      		dec r22
+ 106 0056 E1F7      		brne 1b
+ 107 0058 282B      		or r18,r24
+ 108               	.LM12:
+ 109 005a 822F      		mov r24,r18
+ 110 005c 9927      		clr r25
+ 111               	/* epilogue: frame size=0 */
+ 112 005e 0895      		ret
+ 113               	/* epilogue end (size=1) */
+ 114               	/* function DECtoBCD size 19 (18) */
+ 115               	.LFE10:
+ 117               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rtc.c
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:3      *ABS*:0000003f __SREG__
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:4      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:5      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:20     .text:00000000 RTC_SetValue
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:35     .text:00000006 RTC_ReadValue
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:54     .text:00000012 BCDtoDEC
+C:\DOCUME~1\Maciek\USTAWI~1\Temp/ccQFaaaa.s:88     .text:0000003a DECtoBCD
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+WriteI2C
+SetPointer
+ReadI2C
+__udivmodqi4
